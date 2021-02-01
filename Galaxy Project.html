@@ -38,8 +38,8 @@ In [[front]] of you, there&#39;s a nice waterfall.
 To your [[right]] you see a friendly looking bee with a... a spear??
 To your [[left]] you see a small path which looks like it could be a dead end.</tw-passagedata><tw-passagedata pid="2" name="right" tags="" position="1181,1206.5" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="3" name="front" tags="" position="739,941.5" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="4" name="left" tags="" position="372,1226.5" size="100,100">&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_b371397953064e1dbcdee40349be3698~mv2.jpg&quot; width=&quot;768&quot; height=&quot;432&quot;&gt;&lt;/center&gt;
 
-[[Search around.]]</tw-passagedata><tw-passagedata pid="5" name="Start" tags="" position="760,1473.5" size="100,100">(set: $oneup to 1)
-(set: $lives to 3)
+[[Search around.]]</tw-passagedata><tw-passagedata pid="5" name="Start" tags="" position="760,1475.5" size="100,100">(set: $oneup to 1)
+(set: $lives to 0)
 (replace: ?lives)[$lives]
 
 [[Welcome to Beehive World]] 
@@ -50,8 +50,7 @@ created by Heather Wagner and Edwin Almaraz
 (track: &#39;backgroundMusic&#39;, &#39;loop&#39;, true)
 (track: &#39;backgroundMusic&#39;, &#39;playwhenpossible&#39;)
 }</tw-passagedata><tw-passagedata pid="6" name="Search around." tags="" position="487,1495.5" size="100,100">(if: $oneup is 1)[
-You see a yellow box high up.  
-{(link: &#39;Jump&#39;) [
+You see a yellow box high up. (link: &#39;Jump&#39;) [
 (track: &#39;Jump&#39;, &#39;play&#39;)
 (set: $oneup to 0)
 (set: $lives += 1)
@@ -59,7 +58,7 @@ You see a yellow box high up.
 (track: &#39;oneup&#39;, &#39;play&#39;)
 You&#39;ve found a 1-up Mushroom!
 [[Go back.-&gt;Welcome to Beehive World]]
-] } 
+] 
 ]
 (else:)[
 There is nothing else here.
@@ -68,7 +67,7 @@ There is nothing else here.
 </tw-passagedata><tw-passagedata pid="7" name="hal.tracks" tags="" position="759,1626.5" size="100,100">backgroundMusic: https://static.wixstatic.com/mp3/a5390d_0658244dff4f4b4cbc4a1899e578905f.mp3
 jump: https://static.wixstatic.com/mp3/a5390d_e079f488dd6445fd905ce5869615de52.mp3
 Jump: https://static.wixstatic.com/mp3/a5390d_37f1be8e61ce4099af34000bbae7f6f4.mp3
-oneup: https://static.wixstatic.com/mp3/a5390d_2bda356db5184205a09e0084b6994062.mp3</tw-passagedata><tw-passagedata pid="8" name="header" tags="header" position="884,1625.2999877929688" size="100,100">Lives left: [$lives]&lt;lives|
+oneup: https://static.wixstatic.com/mp3/a5390d_2bda356db5184205a09e0084b6994062.mp3</tw-passagedata><tw-passagedata pid="8" name="header" tags="header" position="884,1625.2999877929688" size="100,100">Extra Lives: [$lives]&lt;lives|
 
 
 </tw-passagedata></tw-storydata>
