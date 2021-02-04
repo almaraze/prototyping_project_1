@@ -40,20 +40,29 @@ To your [[left]] you see a small path which looks like it could be a dead end.</
 It&#39;s too high for you to reach! Maybe you can come back later.
 }]
 Or you can try to [[go back-&gt;Welcome to Beehive World]].</tw-passagedata><tw-passagedata pid="3" name="front" tags="" position="791,1023" size="100,100">you decide to approach the [[hill]]. The bee you spotted when you first landed on the island approaches you. He&#39;s holding his spear
-&quot;Watch out for the rolling rocks!&quot; He says. &quot;They&#39;ll send you all the way back down here if they hit you! I was so close to making it until I dodged right on the last rock...&quot;</tw-passagedata><tw-passagedata pid="4" name="left" tags="" position="457,1229" size="100,100">&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_b371397953064e1dbcdee40349be3698~mv2.jpg&quot; width=&quot;768&quot; height=&quot;432&quot;&gt;&lt;/center&gt;
- Walking to the left brings you to a quieter side of the island. You take a moment to 
-[[Search around.]]</tw-passagedata><tw-passagedata pid="5" name="Start" tags="" position="759,1475" size="100,100">(set: $oneup to 1)
+&quot;Watch out for the rolling rocks!&quot; He says. &quot;They&#39;ll send you all the way back down here if they hit you! I was so close to making it until I dodged right on the last rock...&quot;
+[[Go back.-&gt;Welcome to Beehive World]]</tw-passagedata><tw-passagedata pid="4" name="left" tags="" position="457,1229" size="100,100">&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_b371397953064e1dbcdee40349be3698~mv2.jpg&quot; width=&quot;768&quot; height=&quot;432&quot;&gt;&lt;/center&gt;
+ Walking to the left brings you to a quieter side of the island. You take a moment to [[search around.]]</tw-passagedata><tw-passagedata pid="5" name="Start" tags="" position="943,1451" size="100,100">{
+(set: $pwruptext to &#39;&#39;)
+(replace: ?pwruptext)[$pwruptext]
+(set: $oneup to 1)
+(set: $wingsbox to 1)
+(set: $wings to 0)
 (set: $lives to 0)
 (replace: ?lives)[$lives]
+}
+(align:&quot;=&gt;&lt;=&quot;)[
+	[[Welcome to Beehive World]]
 
-[[Welcome to Beehive World]] 
-
-created by Heather Wagner and Edwin Almaraz
+	by 	Heather Wagner and
+		Edwin Almaraz
+]
 
 {
 (track: &#39;backgroundMusic&#39;, &#39;loop&#39;, true)
 (track: &#39;backgroundMusic&#39;, &#39;playwhenpossible&#39;)
-}</tw-passagedata><tw-passagedata pid="6" name="Search around." tags="" position="576,1473" size="100,100">(if: $oneup is 1)[
+(track: &#39;backgroundMusic&#39;, &#39;volume&#39;, 0.5)
+}</tw-passagedata><tw-passagedata pid="6" name="search around." tags="" position="577,1473" size="100,100">(if: $oneup is 1)[
 	You see a yellow box with a question mark on it hidden on a lower ledge. 
 	(link: &#39;Jump&#39;) [{
 		(track: &#39;Jump&#39;, &#39;play&#39;)
@@ -73,7 +82,12 @@ created by Heather Wagner and Edwin Almaraz
 jump: https://static.wixstatic.com/mp3/a5390d_e079f488dd6445fd905ce5869615de52.mp3
 Jump: https://static.wixstatic.com/mp3/a5390d_37f1be8e61ce4099af34000bbae7f6f4.mp3
 oneup: https://static.wixstatic.com/mp3/a5390d_2bda356db5184205a09e0084b6994062.mp3
-rocks: https://static.wixstatic.com/mp3/a5390d_a1f90efa4e394eaba3f0121c5f558001.mp3</tw-passagedata><tw-passagedata pid="8" name="header" tags="header" position="884,1625" size="100,100">Extra Lives: [$lives]&lt;lives|
+rocks: https://static.wixstatic.com/mp3/a5390d_a1f90efa4e394eaba3f0121c5f558001.mp3
+yahoo: https://static.wixstatic.com/mp3/a5390d_f1e4db8a57784aa7a384a4616b6a5a94.mp3
+powerup: https://static.wixstatic.com/mp3/a5390d_3251dd5bf97b4ed7b64da28c51e2599b.mp3</tw-passagedata><tw-passagedata pid="8" name="header" tags="header" position="886,1626" size="100,100">Extra Lives: [$lives]&lt;lives| 
+Power-Ups: [$pwruptext]&lt;pwruptext|
+Coins x [$coincount]&lt;coincount|
+
 
 
 </tw-passagedata><tw-passagedata pid="9" name="hill" tags="" position="796,872" size="100,100">You jog up the bottom of the hill when you suddenly hear  a faint rumbling. It continues to get louder until...
@@ -121,13 +135,23 @@ Dodge [[left|dodgeleft4]] or dodge [[right|dodgeright4]]!</tw-passagedata><tw-pa
 	You got hit by a rock!
 	(track: &#39;rocks&#39;, &#39;play&#39;)
 	[[Try again?-&gt;hill]]
-]</tw-passagedata><tw-passagedata pid="16" name="dodgeleft4" tags="" position="805,203" size="100,100">The last boulder rolls past you and you let out a big &quot;yahoo!&quot;. You take a moment to catch your breath and look at your surroundings.
+]</tw-passagedata><tw-passagedata pid="16" name="dodgeleft4" tags="" position="805,203" size="100,100">(track: &#39;yahoo&#39;, &#39;play&#39;)
+The last boulder rolls past you and you let out a big &quot;yahoo!&quot;. You take a moment to catch your breath and look at your surroundings.
 
-
-You encounter a large fountain and a large ??? box.
-Jump.
-
-</tw-passagedata><tw-passagedata pid="17" name="dodgeright4" tags="" position="1004,357" size="100,100">(if: $lives &gt; 0)[
+(if: $wingsbox is 1)[{
+	You encounter a large fountain and a large ??? box.	
+	}
+	(link: &#39;Jump&#39;)[{
+		(track: &#39;Jump&#39;, &#39;play&#39;)
+		(set: $wingsbox to 0)
+		(set: $wings to 1)
+		(set: $pwruptext to it + &#39;Beewings &#39;)
+		(replace: ?pwruptext)[$pwruptext]
+		(track: &#39;powerup&#39;, &#39;play&#39;)
+		You&#39;ve found the beewings power-up!
+		}
+		[[Go back-&gt;Welcome to Beehive World]] to the bottom of the hill?	]	
+]</tw-passagedata><tw-passagedata pid="17" name="dodgeright4" tags="" position="1004,357" size="100,100">(if: $lives &gt; 0)[
 	You got hit by a rock! You lost one of your lives!
 	(set: $lives to $lives-1)
 	(replace: ?lives)[$lives]
