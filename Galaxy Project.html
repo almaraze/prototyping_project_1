@@ -107,7 +107,8 @@ powerup: https://static.wixstatic.com/mp3/a5390d_3251dd5bf97b4ed7b64da28c51e2599
 coin: https://static.wixstatic.com/mp3/a5390d_738ef017c3184dafb548c531c3c672ea.mp3
 stomp: https://static.wixstatic.com/mp3/a5390d_d99e8954e1564b62af50bb1fd545e3a8.mp3
 pipe: https://static.wixstatic.com/mp3/a5390d_2f9141c38d1146e197461dbfdf639d45.mp3
-uhoh: https://static.wixstatic.com/mp3/a5390d_83656072d3e44ee09f9af4a567eb0e7b.mp3</tw-passagedata><tw-passagedata pid="8" name="header" tags="header" position="992,1549" size="100,100">Extra Lives: [$lives]&lt;lives| 
+uhoh: https://static.wixstatic.com/mp3/a5390d_83656072d3e44ee09f9af4a567eb0e7b.mp3
+beeflight: https://static.wixstatic.com/mp3/a5390d_e711358b400b401fb1f07f0fe713d21c.mp3</tw-passagedata><tw-passagedata pid="8" name="header" tags="header" position="992,1549" size="100,100">Extra Lives: [$lives]&lt;lives| 
 Power-Ups: [$pwruptext]&lt;pwruptext|
 Coins x [$coincount]&lt;coincount|
 
@@ -250,7 +251,7 @@ Or you can take a path that goes toward the [[right-&gt;right2]].
 &lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_dda17265ebbe400886e1e1b93e14a8a8~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="23" name="left2" tags="" position="1891,1106" size="100,100">Ahead of you on the path there are giant dandelions basking in the sun. Maybe you can get closer to that bee in the sky if you [[climb them?|dandy]] or you can [[turn around|lily pads]] if you really want.
 
 
-&lt;center&gt;&lt;img src=&quot;https://www.planetnatural.com/wp-content/uploads/2013/05/dandelion-seeds.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="24" name="straight" tags="" position="2203,1176" size="100,100">You head off straight ahead. You continually whack aside bushes that block you from seeing where you&#39;re headed until-
+&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_8a61f4fd88ca4d8db29553a102cbd566~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="24" name="straight" tags="" position="2160,1074" size="100,100">You head off straight ahead. You continually whack aside bushes that block you from seeing where you&#39;re headed until-
 wait...isn&#39;t this where you started? How long have you been going in circles for? 
 
 You get your bearings again. You can either head [[left|left2]] or [[right|right2]] </tw-passagedata><tw-passagedata pid="25" name="right2" tags="" position="2399,1191" size="100,100">The right path detours you to a mini island in the pond. 
@@ -267,15 +268,18 @@ You get your bearings again. You can either head [[left|left2]] or [[right|right
 		There&#39;s nothing else here.
 	]
 ]
-[[Go back.-&gt;lily pads]]
+[[Go back to the lily pads.-&gt;lily pads]]
 
-</tw-passagedata><tw-passagedata pid="26" name="dandy" tags="" position="1964,956" size="100,100">You carefully climb up the stalk of one of the giant weeds. As you reach the top you can feel the stem of the flower drawing back. Seconds later it snaps upwards and sends you flying through the air! You stretch out your arms and reach for the platform that can help you get to the giant bee...but your arms fall short and you crash land back to where the [[lily pads]] branch off!
+</tw-passagedata><tw-passagedata pid="26" name="dandy" tags="" position="1961,931" size="100,100">(if: $wings is 0)[
+	You carefully climb up the stalk of one of the giant weeds. As you reach the top you can feel the stem of the flower drawing back. Seconds later it snaps upwards and sends you flying through the air! You stretch out your arms and reach for the platform that can help you get to the giant bee...but your arms fall short and you crash land back to where the [[lily pads]] branch off!
 
-OR (beewings version)
-(track: &#39;yahoo&#39;, &#39;play&#39;)
-You decide to climb up one of the giant flowers. As you reach the top you can feel the stem drawing back. Just as you&#39;re about to slide down it snaps back upwards and sends you flying through the air! You stretch out your arms and reach for the platform that can help you get to the giant bee...your arms fall short but your beewings flap just in the nick of time! You hoist yourself up onto the [[platform|queenplatform]] and shout out your glee.
-
-&lt;center&gt;&lt;img src=&quot;https://www.planetnatural.com/wp-content/uploads/2013/05/dandelion-seeds.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="27" name="queenplatform" tags="" position="1731,943" size="100,100">stopped by guard
+]
+(else:)[
+	(track: &#39;yahoo&#39;, &#39;play&#39;)
+	You decide to climb up one of the giant flowers. As you reach the top you can feel the stem drawing back. Just as you&#39;re about to slide down it snaps back upwards and sends you flying through the air! You stretch out your arms and reach for the platform that can help you get to the giant bee...your arms fall short but your beewings flap just in the nick of time! You hoist yourself up onto the [[platform|queenplatform]] and shout out your glee.
+	(track: &#39;beeflight&#39;)
+]
+&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_8a61f4fd88ca4d8db29553a102cbd566~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="27" name="queenplatform" tags="" position="1731,943" size="100,100">stopped by guard
 
 [[bribe]] or [[politely explain|explain]]</tw-passagedata><tw-passagedata pid="28" name="bribe" tags="" position="1670,754" size="100,100">remove x coins.
 
