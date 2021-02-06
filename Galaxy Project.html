@@ -57,6 +57,7 @@ Or you can try to [[go back-&gt;Welcome to Beehive World]].</tw-passagedata><tw-
 (replace: ?lives)[$lives]
 (set: $coinbox1 to 10)
 (set: $coinbox2 to 10)
+(set: $coinbox3 to 10)
 (set: $islandwings to 1)
 }
 (align:&quot;=&gt;&lt;=&quot;)[
@@ -70,7 +71,7 @@ Or you can try to [[go back-&gt;Welcome to Beehive World]].</tw-passagedata><tw-
 (track: &#39;backgroundMusic&#39;, &#39;loop&#39;, true)
 (track: &#39;backgroundMusic&#39;, &#39;playwhenpossible&#39;)
 (track: &#39;backgroundMusic&#39;, &#39;volume&#39;, 0.5)
-}</tw-passagedata><tw-passagedata pid="6" name="search around." tags="" position="496,1424" size="100,100">(if: $oneup is 1)[
+}</tw-passagedata><tw-passagedata pid="6" name="search around." tags="" position="497,1424" size="100,100">(if: $oneup is 1)[
 	You see a yellow box with a question mark on it hidden on a lower ledge. 
 	(link: &#39;Jump&#39;) [{
 		(track: &#39;Jump&#39;, &#39;play&#39;)
@@ -97,7 +98,7 @@ You see a yellow box with a question mark on it hidden on a lower ledge.
 	There is nothing else here.
 	[[Go back.-&gt;Welcome to Beehive World]]
 ]
-</tw-passagedata><tw-passagedata pid="7" name="hal.tracks" tags="" position="881,1548" size="100,100">backgroundMusic: https://static.wixstatic.com/mp3/a5390d_0658244dff4f4b4cbc4a1899e578905f.mp3
+</tw-passagedata><tw-passagedata pid="7" name="hal.tracks" tags="" position="880,1548" size="100,100">backgroundMusic: https://static.wixstatic.com/mp3/a5390d_0658244dff4f4b4cbc4a1899e578905f.mp3
 jump: https://static.wixstatic.com/mp3/a5390d_e079f488dd6445fd905ce5869615de52.mp3
 Jump: https://static.wixstatic.com/mp3/a5390d_37f1be8e61ce4099af34000bbae7f6f4.mp3
 oneup: https://static.wixstatic.com/mp3/a5390d_2bda356db5184205a09e0084b6994062.mp3
@@ -108,7 +109,8 @@ coin: https://static.wixstatic.com/mp3/a5390d_738ef017c3184dafb548c531c3c672ea.m
 stomp: https://static.wixstatic.com/mp3/a5390d_d99e8954e1564b62af50bb1fd545e3a8.mp3
 pipe: https://static.wixstatic.com/mp3/a5390d_2f9141c38d1146e197461dbfdf639d45.mp3
 uhoh: https://static.wixstatic.com/mp3/a5390d_83656072d3e44ee09f9af4a567eb0e7b.mp3
-beeflight: https://static.wixstatic.com/mp3/a5390d_e711358b400b401fb1f07f0fe713d21c.mp3</tw-passagedata><tw-passagedata pid="8" name="header" tags="header" position="992,1549" size="100,100">Extra Lives: [$lives]&lt;lives| 
+beeflight: https://static.wixstatic.com/mp3/a5390d_e711358b400b401fb1f07f0fe713d21c.mp3
+coindrop: https://static.wixstatic.com/mp3/a5390d_3ff52db61b0b4089bf551aeec2c0a2c6.mp3</tw-passagedata><tw-passagedata pid="8" name="header" tags="header" position="992,1549" size="100,100">Extra Lives: [$lives]&lt;lives| 
 Power-Ups: [$pwruptext]&lt;pwruptext|
 Coins x [$coincount]&lt;coincount|
 
@@ -248,13 +250,16 @@ You can also go [[straight]] through some bushes.
 Or you can take a path that goes toward the [[right-&gt;right2]].
 
 
-&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_dda17265ebbe400886e1e1b93e14a8a8~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="23" name="left2" tags="" position="1891,1106" size="100,100">Ahead of you on the path there are giant dandelions basking in the sun. Maybe you can get closer to that bee in the sky if you [[climb them?|dandy]] or you can [[turn around|lily pads]] if you really want.
+&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_dda17265ebbe400886e1e1b93e14a8a8~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="23" name="left2" tags="" position="1813,1049" size="100,100">Ahead of you on the path there are giant dandelions basking in the sun. Maybe you can get closer to that bee in the sky if you [[climb them?|dandy]] or you can [[turn around|lily pads]] if you really want.
 
 
-&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_8a61f4fd88ca4d8db29553a102cbd566~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="24" name="straight" tags="" position="2160,1074" size="100,100">You head off straight ahead. You continually whack aside bushes that block you from seeing where you&#39;re headed until-
+&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_8a61f4fd88ca4d8db29553a102cbd566~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="24" name="straight" tags="" position="2293,923" size="100,100">You head off straight ahead. You continually whack aside bushes that block you from seeing where you&#39;re headed until-
 wait...isn&#39;t this where you started? How long have you been going in circles for? 
 
-You get your bearings again. You can either head [[left|left2]] or [[right|right2]] </tw-passagedata><tw-passagedata pid="25" name="right2" tags="" position="2399,1191" size="100,100">The right path detours you to a mini island in the pond. 
+You get your bearings again. You can either head [[left|left2]] or [[right|right2]] 
+
+
+[[.-&gt;secret area]]</tw-passagedata><tw-passagedata pid="25" name="right2" tags="" position="2351,1156" size="100,100">The right path detours you to a mini island in the pond. 
 (link: &#39;Just some bushes.&#39;)[
 	(if: $islandwings is 1)[
 		Quietly tucked away behind some bushes sits a beewings powerup!
@@ -279,16 +284,58 @@ You get your bearings again. You can either head [[left|left2]] or [[right|right
 	You decide to climb up one of the giant flowers. As you reach the top you can feel the stem drawing back. Just as you&#39;re about to slide down it snaps back upwards and sends you flying through the air! You stretch out your arms and reach for the platform that can help you get to the giant bee...your arms fall short but your beewings flap just in the nick of time! You hoist yourself up onto the [[platform|queenplatform]] and shout out your glee.
 	(track: &#39;beeflight&#39;)
 ]
-&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_8a61f4fd88ca4d8db29553a102cbd566~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="27" name="queenplatform" tags="" position="1731,943" size="100,100">stopped by guard
+&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_8a61f4fd88ca4d8db29553a102cbd566~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="27" name="queenplatform" tags="" position="1755,905" size="100,100">stopped by guard
 
-[[bribe]] or [[politely explain|explain]]</tw-passagedata><tw-passagedata pid="28" name="bribe" tags="" position="1670,754" size="100,100">remove x coins.
+&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_60386f6d429f4f87adf3ff2ff53c7dce~mv2.jpg&quot; width=&quot;800&quot; height=&quot;664&quot;&gt;&lt;/center&gt;
+
+(link: &#39;Offer the guard a bribe&#39;)[
+	(if: $coins &gt; 9)[
+		(link-reveal-goto: &#39;You may pass.&#39;, &#39;bribe&#39;)
+	]
+	(else:)[
+		You don&#39;t have enough coins to bribe the guard.
+	]
+]
+
+or 
+
+[[politely explain|explain]]
+[[Go back.-&gt;dandy]]</tw-passagedata><tw-passagedata pid="28" name="bribe" tags="" position="1915,518" size="100,100">remove x coins.
+(set: $coins to it - 10)
+(replace: ?coins)[$coins]
+(track: &#39;coindrop&#39;, &#39;play&#39;)
+
+
+
 
 bribe accepted. bee lets you past him to [[queen]]
 </tw-passagedata><tw-passagedata pid="29" name="explain" tags="" position="1909,775" size="100,100">doesnt work.
 
-[[bribe]] or [[go back|dandy]]
-</tw-passagedata><tw-passagedata pid="30" name="queen" tags="" position="1737,571" size="100,100">queen dialouge. gives you [[star|end]]
-</tw-passagedata><tw-passagedata pid="31" name="end" tags="" position="1871,429" size="100,100">end game</tw-passagedata></tw-storydata>
+(link: &#39;Offer the guard a bribe&#39;)[
+	(if: $coins &gt; 9)[
+		(link-reveal-goto: &#39;You may pass.&#39;, &#39;bribe&#39;)
+	]
+	(else:)[
+		You don&#39;t have enough coins to bribe the guard.
+	]
+] or [[go back.|dandy]]
+</tw-passagedata><tw-passagedata pid="30" name="queen" tags="" position="1936,340" size="100,100">queen dialouge. gives you [[star|end]]
+</tw-passagedata><tw-passagedata pid="31" name="end" tags="" position="1926,139" size="100,100">end game</tw-passagedata><tw-passagedata pid="32" name="secret area" tags="" position="2178,750" size="100,100">(if: $coinbox3 &gt; 0)[
+	???
+	
+	(link-repeat: &#39;Jump.&#39;)[{
+		(track: &#39;Jump&#39;, &#39;play&#39;)
+		(track: &#39;coin&#39;, &#39;play&#39;)
+		(set: $coinbox3 to $coinbox3 - 1)
+		(set: $coincount to $coincount + 1)
+		(replace: ?coincount)[$coincount]
+		(goto: &#39;secret area&#39;)
+	}]
+]
+(else:)[
+	There is nothing else here.
+	[[Go back.-&gt;straight]]
+]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">"use strict";var _slicedToArray=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,i=!1,a=void 0;try{for(var o,s=e[Symbol.iterator]();!(r=(o=s.next()).done)&&(n.push(o.value),!t||n.length!==t);r=!0);}catch(e){i=!0,a=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw a}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}!function(){
 /**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
