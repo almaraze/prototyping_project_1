@@ -70,7 +70,7 @@ Or you can try to [[go back-&gt;Welcome to Beehive World]].</tw-passagedata><tw-
 {
 (track: &#39;backgroundMusic&#39;, &#39;loop&#39;, true)
 (track: &#39;backgroundMusic&#39;, &#39;playwhenpossible&#39;)
-(track: &#39;backgroundMusic&#39;, &#39;volume&#39;, 0.5)
+(track: &#39;backgroundMusic&#39;, &#39;volume&#39;, 0.3)
 }</tw-passagedata><tw-passagedata pid="6" name="search around." tags="" position="497,1424" size="100,100">(if: $oneup is 1)[
 	You see a yellow box with a question mark on it hidden on a lower ledge. 
 	(link: &#39;Jump&#39;) [{
@@ -275,22 +275,24 @@ You get your bearings again. You can either head [[left|left2]] or [[right|right
 ]
 [[Go back to the lily pads.-&gt;lily pads]]
 
-</tw-passagedata><tw-passagedata pid="26" name="dandy" tags="" position="1961,931" size="100,100">(if: $wings is 0)[
+</tw-passagedata><tw-passagedata pid="26" name="dandy" tags="" position="1881,871" size="100,100">(if: $wings is 0)[
 	You carefully climb up the stalk of one of the giant weeds. As you reach the top you can feel the stem of the flower drawing back. Seconds later it snaps upwards and sends you flying through the air! You stretch out your arms and reach for the platform that can help you get to the giant bee...but your arms fall short and you crash land back to where the [[lily pads]] branch off!
 
 ]
 (else:)[
 	(track: &#39;yahoo&#39;, &#39;play&#39;)
 	You decide to climb up one of the giant flowers. As you reach the top you can feel the stem drawing back. Just as you&#39;re about to slide down it snaps back upwards and sends you flying through the air! You stretch out your arms and reach for the platform that can help you get to the giant bee...your arms fall short but your beewings flap just in the nick of time! You hoist yourself up onto the [[platform|queenplatform]] and shout out your glee.
-	(track: &#39;beeflight&#39;)
+	(track: &#39;beeflight&#39;, &#39;play&#39;)
 ]
-&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_8a61f4fd88ca4d8db29553a102cbd566~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="27" name="queenplatform" tags="" position="1755,905" size="100,100">stopped by guard
+&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_8a61f4fd88ca4d8db29553a102cbd566~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="27" name="queenplatform" tags="" position="1888,643" size="100,100">stopped by guard
 
 &lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_60386f6d429f4f87adf3ff2ff53c7dce~mv2.jpg&quot; width=&quot;800&quot; height=&quot;664&quot;&gt;&lt;/center&gt;
 
 (link: &#39;Offer the guard a bribe&#39;)[
-	(if: $coins &gt; 9)[
-		(link-reveal-goto: &#39;You may pass.&#39;, &#39;bribe&#39;)
+	(if: $coincount &gt; 9)[
+		(link-reveal-goto: &#39;You may pass.&#39;, &#39;bribe&#39;)[
+			(track: &#39;yahoo&#39;, &#39;play&#39;)
+		]
 	]
 	(else:)[
 		You don&#39;t have enough coins to bribe the guard.
@@ -301,18 +303,18 @@ or
 
 [[politely explain|explain]]
 [[Go back.-&gt;dandy]]</tw-passagedata><tw-passagedata pid="28" name="bribe" tags="" position="1915,518" size="100,100">remove x coins.
-(set: $coins to it - 10)
-(replace: ?coins)[$coins]
+(set: $coincount to it - 10)
+(replace: ?coincount)[$coincount]
 (track: &#39;coindrop&#39;, &#39;play&#39;)
 
 
 
 
 bribe accepted. bee lets you past him to [[queen]]
-</tw-passagedata><tw-passagedata pid="29" name="explain" tags="" position="1909,775" size="100,100">doesnt work.
+</tw-passagedata><tw-passagedata pid="29" name="explain" tags="" position="2030,839" size="100,100">doesnt work.
 
 (link: &#39;Offer the guard a bribe&#39;)[
-	(if: $coins &gt; 9)[
+	(if: $coincount &gt; 9)[
 		(link-reveal-goto: &#39;You may pass.&#39;, &#39;bribe&#39;)
 	]
 	(else:)[
