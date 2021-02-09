@@ -13,7 +13,7 @@
   background-image:url("https://static.wixstatic.com/media/a5390d_92c7cf290c0a4a09b79c2ce01b911af3~mv2.jpg");
   background-size:cover;
 }
-test
+
 /**
  * Harlowe Audio Library (HAL), by Chapel, v2.2.1
  * for Harlowe 2.1.0 and higher
@@ -34,7 +34,7 @@ You soar through the air like a gymnast launching from a springboard.
 In the distance, you can see the heavens; Nebulas and stars which make up the galaxy.  You quickly approach a small piece of land, and before you know it you&#39;ve crash landed right onto and island! You get your bearings and take in the area around you. There must be a star to find somewhere on the island!
 In [[front]] of you a nice hill slopes upwards.
 To your [[right]] you see a waterfall and a friendly looking bee with a... a spear??
-To your [[left]] you see a small path which looks like it could be a dead end.</tw-passagedata><tw-passagedata pid="2" name="right" tags="" position="1117,1279" size="100,100">You wander up to the base of the waterfall. Two grassy platforms lead up into a tunnel that travels under the waterfall and through the mountain.
+To your [[left]] you see a small path which looks like it could be a dead end.</tw-passagedata><tw-passagedata pid="2" name="right" tags="" position="1118,1279" size="100,100">You wander up to the base of the waterfall. Two grassy platforms lead up into a tunnel that travels under the waterfall and through the mountain.
 (if: $wings is 0)[
 	(link: &#39;You can try to jump up...&#39;)[{
 		(track: &#39;Jump&#39;, &#39;play&#39;)
@@ -44,10 +44,46 @@ To your [[left]] you see a small path which looks like it could be a dead end.</
 (else:)[
 	You can use your new flying ability to reach the platforms and continue through the [[tunnel]] behind the waterfall.
 ]
-Or you can try to [[go back-&gt;Welcome to Beehive World]].</tw-passagedata><tw-passagedata pid="3" name="front" tags="" position="677,901" size="100,100">You decide to approach the [[hill]]. The bee you spotted when you first landed on the island approaches you.
+Or you can try to [[go back-&gt;Welcome to Beehive World]].
+
+
+
+
+
+(if: $secretcoin01 is 1)[
+	(link: &#39;0&#39;)[
+		(set: $coincount to it + 1)
+		(track: &#39;coin&#39;, &#39;play&#39;)
+		(set: $secretcoin01 to 0)
+		(replace: ?coincount)[$coincount]
+	]
+]</tw-passagedata><tw-passagedata pid="3" name="front" tags="" position="677,901" size="100,100">You decide t{
+	(if: $secretcoin03 is 1)[
+		(link: &#39;0&#39;)[
+			(set: $coincount to it + 1)
+			(track: &#39;coin&#39;, &#39;play&#39;)
+			(set: $secretcoin03 to 0)
+			(replace: ?coincount)[$coincount]
+			o
+		]
+	]
+	(else:)[
+		o
+	]} approach the [[hill]]. The bee you spotted when you first landed on the island approaches you.
 &quot;Watch out for the rolling rocks!&quot; He says. &quot;They&#39;ll send you all the way back down here if they hit you! I was so close to making it until I dodged right on the last rock...&quot;
-[[Go back.-&gt;Welcome to Beehive World]]</tw-passagedata><tw-passagedata pid="4" name="left" tags="" position="276,1207" size="100,100">&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_b371397953064e1dbcdee40349be3698~mv2.jpg&quot; width=&quot;768&quot; height=&quot;432&quot;&gt;&lt;/center&gt;
- Walking to the left brings you to a quieter side of the island. You take a moment to [[search around.]]</tw-passagedata><tw-passagedata pid="5" name="Start" tags="" position="860,1360" size="100,100">{
+[[Go back.-&gt;Welcome to Beehive World]]
+
+
+
+
+
+
+
+
+</tw-passagedata><tw-passagedata pid="4" name="left" tags="" position="395,1185" size="100,100">&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_b371397953064e1dbcdee40349be3698~mv2.jpg&quot; width=&quot;768&quot; height=&quot;432&quot;&gt;&lt;/center&gt;
+ Walking to the left brings you to a quieter side of the island. You take a moment to [[search around.]]  
+ 
+</tw-passagedata><tw-passagedata pid="5" name="Start" tags="" position="860,1360" size="100,100">{
 (set: $pwruptext to &#39;&#39;)
 (replace: ?pwruptext)[$pwruptext]
 (set: $oneup to 1)
@@ -59,6 +95,12 @@ Or you can try to [[go back-&gt;Welcome to Beehive World]].</tw-passagedata><tw-
 (set: $coinbox2 to 10)
 (set: $coinbox3 to 10)
 (set: $islandwings to 1)
+(set: $enemy01 to 1)
+(set: $secretcoin01 to 1)
+(set: $secretcoin02 to 1)
+(set: $secretcoin03 to 1)
+(set: $secretcoin04 to 1)
+(set: $secretcoin05 to 1)
 }
 (align:&quot;=&gt;&lt;=&quot;)[
 	[[Welcome to Beehive World]]
@@ -71,34 +113,18 @@ Or you can try to [[go back-&gt;Welcome to Beehive World]].</tw-passagedata><tw-
 (track: &#39;backgroundMusic&#39;, &#39;loop&#39;, true)
 (track: &#39;backgroundMusic&#39;, &#39;playwhenpossible&#39;)
 (track: &#39;backgroundMusic&#39;, &#39;volume&#39;, 0.3)
-}</tw-passagedata><tw-passagedata pid="6" name="search around." tags="" position="497,1424" size="100,100">(if: $oneup is 1)[
-	You see a yellow box with a question mark on it hidden on a lower ledge. 
-	(link: &#39;Jump&#39;) [{
-		(track: &#39;Jump&#39;, &#39;play&#39;)
-		(track: &#39;oneup&#39;, &#39;play&#39;)
-		(set: $oneup to 0)
-		(set: $lives += 1)
-		(replace: ?lives)[$lives]
-		You&#39;ve found a 1-up Mushroom!
-		[[Go back.-&gt;Welcome to Beehive World]]
-	}] 
-]
-(else-if: $oneup is 0 and $coinbox1 &gt; 0)[
-You see a yellow box with a question mark on it hidden on a lower ledge.
-	(link-repeat: &#39;Jump&#39;)[{
-		(track: &#39;Jump&#39;, &#39;play&#39;)
-		(track: &#39;coin&#39;, &#39;play&#39;)
-		(set: $coinbox1 to $coinbox1 - 1)
-		(set: $coincount to $coincount + 1)
-		(replace: ?coincount)[$coincount]
-		(goto: &#39;search around.&#39;)
-	}]
+}</tw-passagedata><tw-passagedata pid="6" name="search around." tags="" position="181,1215" size="100,100">(if: $enemy01 is 1)[
+You encounter a harmless looking plant guarding a path.  As you approach it, you realize this is no ordinary plant... It snaps at you and reveals its sharp teeth.  You are barely out of reach.
+
+&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_ea290ab158c740469bf33928e83aea48~mv2.png&quot;&gt;&lt;/center&gt;
+
+[[Try running past it.]]
+
+[[Stomp on its head.]]
 ]
 (else:)[
-	There is nothing else here.
-	[[Go back.-&gt;Welcome to Beehive World]]
-]
-</tw-passagedata><tw-passagedata pid="7" name="hal.tracks" tags="" position="880,1548" size="100,100">backgroundMusic: https://static.wixstatic.com/mp3/a5390d_0658244dff4f4b4cbc4a1899e578905f.mp3
+	(goto: &#39;Continue down the path.&#39;)
+]</tw-passagedata><tw-passagedata pid="7" name="hal.tracks" tags="" position="881,1547" size="100,100">backgroundMusic: https://static.wixstatic.com/mp3/a5390d_0658244dff4f4b4cbc4a1899e578905f.mp3
 jump: https://static.wixstatic.com/mp3/a5390d_e079f488dd6445fd905ce5869615de52.mp3
 Jump: https://static.wixstatic.com/mp3/a5390d_37f1be8e61ce4099af34000bbae7f6f4.mp3
 oneup: https://static.wixstatic.com/mp3/a5390d_2bda356db5184205a09e0084b6994062.mp3
@@ -110,7 +136,9 @@ stomp: https://static.wixstatic.com/mp3/a5390d_d99e8954e1564b62af50bb1fd545e3a8.
 pipe: https://static.wixstatic.com/mp3/a5390d_2f9141c38d1146e197461dbfdf639d45.mp3
 uhoh: https://static.wixstatic.com/mp3/a5390d_83656072d3e44ee09f9af4a567eb0e7b.mp3
 beeflight: https://static.wixstatic.com/mp3/a5390d_e711358b400b401fb1f07f0fe713d21c.mp3
-coindrop: https://static.wixstatic.com/mp3/a5390d_3ff52db61b0b4089bf551aeec2c0a2c6.mp3</tw-passagedata><tw-passagedata pid="8" name="header" tags="header" position="992,1549" size="100,100">Extra Lives: [$lives]&lt;lives| 
+coindrop: https://static.wixstatic.com/mp3/a5390d_3ff52db61b0b4089bf551aeec2c0a2c6.mp3
+death: https://static.wixstatic.com/mp3/a5390d_a9ddb79df33644e4a349b2919d3f4816.mp3
+powerstar: https://static.wixstatic.com/mp3/a5390d_5c7ea7b4322f40859cfa430c334bf757.mp3</tw-passagedata><tw-passagedata pid="8" name="header" tags="header" position="992,1549" size="100,100">Extra Lives: [$lives]&lt;lives| 
 Power-Ups: [$pwruptext]&lt;pwruptext|
 Coins x [$coincount]&lt;coincount|
 
@@ -200,7 +228,7 @@ Behind some trees, you notice there is a [[large fountain]].</tw-passagedata><tw
 	You got hit by a rock and fall back down to the bottom of the hill!
 	(track: &#39;rocks&#39;, &#39;play&#39;)
 	[[Try again?-&gt;hill]]
-]</tw-passagedata><tw-passagedata pid="18" name="large fountain" tags="" position="407,54" size="100,100">You approach the large fountain.
+]</tw-passagedata><tw-passagedata pid="18" name="large fountain" tags="" position="379,142" size="100,100">You approach the large fountain.
 (if: $wings is 1)[
 You think about how refreshing it would be to slash around in the fountain. Just as you go to dip your toe in you&#39;re interrupted by yelling.
 &quot;Wait!&quot; Another friendly looking bee rushes up to you.  &quot;I see you have found one of our powerups. Nice! It&#39;s really nice to be able to fly around isn&#39;t it?  Be careful though.  If you get wet, you will not be able to fly anymore!&quot;
@@ -238,7 +266,7 @@ You have to quickly decide: (link: &#39;Either stomp on the bug or&#39;)[
 	(track: &#39;pipe&#39;, &#39;play&#39;)
 ] at the other end of the tunnel.
 
-&lt;img src=&quot;https://i.ytimg.com/vi/8CkDOXV4zDk/maxresdefault.jpg&quot;&gt;</tw-passagedata><tw-passagedata pid="21" name="pipe." tags="" position="1558,1289" size="100,100">You tumble down the green pipe until it finally spits you out into a large pond. You pull yourself out of the water only to realize you&#39;ve lost your beewings powerup!
+&lt;img src=&quot;https://i.ytimg.com/vi/8CkDOXV4zDk/maxresdefault.jpg&quot;&gt;</tw-passagedata><tw-passagedata pid="21" name="pipe." tags="" position="1561,1289" size="100,100">You tumble down the green pipe until it finally spits you out into a large pond. You pull yourself out of the water only to realize you&#39;ve lost your beewings powerup!
 
 
 (track: &#39;uhoh&#39;, &#39;play&#39;)
@@ -246,21 +274,55 @@ You have to quickly decide: (link: &#39;Either stomp on the bug or&#39;)[
 (set: $pwruptext to it - &#39;Beewings &#39;)
 (replace: ?pwruptext)[$pwruptext]
 
-After a moment of pouting you take in the new area. You can see several paths of [[lily pads]] that sprawl across the pond in different directions. High above you a giant bee flutters, casting a silhouette across some oversized dandelions on the other side of the little island you&#39;re on.</tw-passagedata><tw-passagedata pid="22" name="lily pads" tags="" position="2095,1329" size="200,100">You have no other choice but to leap across the lily pads. Lucky for you, they branch off into a few different directions.
+After a moment of pouting you take in the new area. You can see several paths of [[lily pads]] that sprawl across the pond in different directions. High above you a giant bee flutters, casting a silhouette across some oversized dandelions on the other side of the little island you&#39;re on.</tw-passagedata><tw-passagedata pid="22" name="lily pads" tags="" position="2095,1329" size="200,100">You have n{
+	(if: $secretcoin03 is 1)[
+		(link: &#39;0&#39;)[
+			(set: $coincount to it + 1)
+			(track: &#39;coin&#39;, &#39;play&#39;)
+			(set: $secretcoin03 to 0)
+			(replace: ?coincount)[$coincount]
+			o
+		]
+	]
+	(else:)[
+		o
+	]} other choice but to leap across the lily pads. Lucky for you, they branch off into a few different directions.
 
 It looks like you can go [[left-&gt;left2]] towards some interesting looking flowers.
 You can also jump [[straight]] to an island with some bushes.
 Or you can take a path that goes toward the [[right-&gt;right2]].
 
 
-&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_dda17265ebbe400886e1e1b93e14a8a8~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="23" name="left2" tags="" position="1812,1049" size="100,100">Ahead of you on the path there are giant dandelions basking in the sun. Maybe you can get closer to that bee in the sky if you [[climb them?|dandy]] or you can [[turn around|lily pads]] if you really want.
+&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_dda17265ebbe400886e1e1b93e14a8a8~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="23" name="left2" tags="" position="1839,1105" size="100,100">Ahead of you on the path there are giant dandelions basking in the sun. Maybe you can get closer to that bee in the sky if you [[climb them?|dandy]] or you can [[turn around|lily pads]] if you really want.
 
 
-&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_8a61f4fd88ca4d8db29553a102cbd566~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="24" name="straight" tags="" position="2294,925" size="100,100">You head off straight ahead. You continually whack aside bushes that block you from seeing where you&#39;re headed until-
+&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_8a61f4fd88ca4d8db29553a102cbd566~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="24" name="straight" tags="" position="2200,1023" size="100,100">You head off straight ahead. You continually whack aside bushes that block you from seeing where you&#39;re headed until-
 wait...isn&#39;t this where you started? How long have you been going in circles for? 
 
 You get your bearings again. You can either head [[left|left2]] or [[right|right2]] [[.-&gt;secret area]]
-&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_dda17265ebbe400886e1e1b93e14a8a8~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="25" name="right2" tags="" position="2350,1156" size="100,100">The right path detours you to a mini island in the pond. 
+&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_dda17265ebbe400886e1e1b93e14a8a8~mv2.jpg&quot;&gt;&lt;/center&gt;
+
+
+
+
+
+
+
+
+
+
+
+{
+	(if: $secretcoin05 is 1)[
+		(link: &#39;0&#39;)[
+			(set: $coincount to it + 1)
+			(track: &#39;coin&#39;, &#39;play&#39;)
+			(set: $secretcoin05 to 0)
+			(replace: ?coincount)[$coincount]
+			-
+		]
+	]
+}</tw-passagedata><tw-passagedata pid="25" name="right2" tags="" position="2350,1156" size="100,100">The right path detours you to a mini island in the pond. 
 (link: &#39;Just some bushes.&#39;)[
 	(if: $islandwings is 1)[
 		Quietly tucked away behind some bushes sits a beewings powerup!
@@ -276,7 +338,7 @@ You get your bearings again. You can either head [[left|left2]] or [[right|right
 ]
 [[Go back to the lily pads.-&gt;lily pads]]
 
-&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_dda17265ebbe400886e1e1b93e14a8a8~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="26" name="dandy" tags="" position="1881,871" size="100,100">(if: $wings is 0)[
+&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_dda17265ebbe400886e1e1b93e14a8a8~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="26" name="dandy" tags="" position="1918,807" size="100,100">(if: $wings is 0)[
 	You carefully climb up the stalk of one of the giant weeds. As you reach the top you can feel the stem of the flower drawing back. Seconds later it snaps upwards and sends you flying through the air! You stretch out your arms and reach for the platform that can help you get to the giant bee...but your arms fall short and you crash land back to where the [[lily pads]] branch off!
 
 ]
@@ -287,7 +349,7 @@ You get your bearings again. You can either head [[left|left2]] or [[right|right
 ]
 &lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_8a61f4fd88ca4d8db29553a102cbd566~mv2.jpg&quot;&gt;&lt;/center&gt;
 
-[[Go back to lily pads.-&gt;lily pads]]</tw-passagedata><tw-passagedata pid="27" name="queenplatform" tags="" position="1876,680" size="100,100">A large bee waits on the platform. He watches you climb up with a scowl, and puts his hand out in front of himself to signal you to stop. You notice him wearing some expensive rings. Perhaps he enjoys the finer things.
+[[Go back to lily pads.-&gt;lily pads]]</tw-passagedata><tw-passagedata pid="27" name="queenplatform" tags="" position="1764,579" size="100,100">A large bee waits on the platform. He watches you climb up with a scowl, and puts his hand out in front of himself to signal you to stop. You notice him wearing some expensive rings. Perhaps he enjoys the finer things.
 &quot;Queen isn&#39;t open to visitors right now.&quot; He grumbles.
 
 &lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_60386f6d429f4f87adf3ff2ff53c7dce~mv2.jpg&quot; width=&quot;800&quot; height=&quot;664&quot;&gt;&lt;/center&gt;
@@ -302,11 +364,9 @@ You get your bearings again. You can either head [[left|left2]] or [[right|right
 		You don&#39;t have enough coins to bribe the guard.
 	]
 ]
-
-or 
-
+or
 [[politely explain|explain]] why you&#39;d like to get past.
-[[Go back.-&gt;dandy]]</tw-passagedata><tw-passagedata pid="28" name="bribe" tags="" position="1814,479" size="100,100">You quietly offer the guard 10 coins out of your pocket. His eyebrows raise and his expression seems to soften. He slowly slips his hand out and takes your coins. With a nod he signals that you can pass him now.
+[[Go back.-&gt;dandy]]</tw-passagedata><tw-passagedata pid="28" name="bribe" tags="" position="1764,386" size="100,100">You quietly offer the guard 10 coins out of your pocket. His eyebrows raise and his expression seems to soften. He slowly slips his hand out and takes your coins. With a nod he signals that you can pass him now.
 (set: $coincount to it - 10)
 (replace: ?coincount)[$coincount]
 (track: &#39;coindrop&#39;, &#39;play&#39;)
@@ -315,23 +375,37 @@ or
 
 
 Now there is nothing between you and the [[queen]]!
-&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_60386f6d429f4f87adf3ff2ff53c7dce~mv2.jpg&quot; width=&quot;800&quot; height=&quot;664&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="29" name="explain" tags="" position="2031,617" size="100,100">You try to reason with the meathead bee. It doesnt work. In fact, he looks pretty irritated now.
-&quot;Nobody is allowed past me. Get lost.&quot;
-(link: &#39;Offer the guard a bribe&#39;)[
-	(if: $coincount &gt; 9)[
-		(link-reveal-goto: &#39;You may pass.&#39;, &#39;bribe&#39;)
+&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_60386f6d429f4f87adf3ff2ff53c7dce~mv2.jpg&quot; width=&quot;800&quot; height=&quot;664&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="29" name="explain" tags="" position="2026,587" size="100,100">You try t{
+	(if: $secretcoin04 is 1)[
+		(link: &#39;0&#39;)[
+			(set: $coincount to it + 1)
+			(track: &#39;coin&#39;, &#39;play&#39;)
+			(set: $secretcoin04 to 0)
+			(replace: ?coincount)[$coincount]
+			o
+		]
 	]
 	(else:)[
-		You don&#39;t have enough coins to bribe the guard.
-	]
-] or [[go back.|dandy]]
-&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_60386f6d429f4f87adf3ff2ff53c7dce~mv2.jpg&quot; width=&quot;800&quot; height=&quot;664&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="30" name="queen" tags="" position="1936,340" size="100,100">You slowly approach the giant bee floating at the edge of the platform. She smiles down at you.
+		o
+	]} reason with the meathead bee. It doesnt work. In fact, he looks pretty irritated now.
+&quot;Nobody is allowed past me. Get lost.&quot;
+
+(if: $coincount &gt; 9)[
+	[[Offer the guard a bribe.-&gt;bribe]]
+]
+(else:)[
+	You reach down into your pockets to check how much coin you have... Looks like it&#39;s not enough for any sort of bribe.
+]
+
+[[Go back.|dandy]]
+&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_60386f6d429f4f87adf3ff2ff53c7dce~mv2.jpg&quot; width=&quot;800&quot; height=&quot;664&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="30" name="queen" tags="" position="2036,378" size="100,100">You slowly approach the giant bee floating at the edge of the platform. She smiles down at you.
 &quot;Why hello! I&#39;ve been watching you from up here - you&#39;re quite the acrobat! I can&#39;t help but feel like I should give you something for your performance!&quot;
 She pauses a moment to think.
 &quot;Oh! I know! How about this [[star|end]]? Its just been sitting around and I really have no use for it.&quot;
-&lt;center&gt;&lt;img src=&quot;https://s.clipartkey.com/mpngs/s/62-624256_transparent-vintage-bee-png-cartoon-queen-bee.png&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="31" name="end" tags="" position="1926,138" size="100,100">You smile and nod graciously. The star floats up into the air just waiting to be grabbed.
+&lt;center&gt;&lt;img src=&quot;https://s.clipartkey.com/mpngs/s/62-624256_transparent-vintage-bee-png-cartoon-queen-bee.png&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="31" name="end" tags="" position="1918,131" size="100,100">You smile and nod graciously. The star floats up into the air just waiting to be grabbed.
 There&#39;s only one thing left to do; [[jump!|fingame]]
-&lt;center&gt;&lt;img src=&quot;https://s.clipartkey.com/mpngs/s/62-624256_transparent-vintage-bee-png-cartoon-queen-bee.png&quot;&gt;&lt;img src=&quot;https://www.iconninja.com/files/852/840/871/mario-star-icon.png&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="32" name="secret area" tags="" position="2177,750" size="100,100">Looks like you found a secret area!
+&lt;center&gt;&lt;img src=&quot;https://s.clipartkey.com/mpngs/s/62-624256_transparent-vintage-bee-png-cartoon-queen-bee.png&quot;&gt;&lt;img src=&quot;https://www.iconninja.com/files/852/840/871/mario-star-icon.png&quot;&gt;&lt;/center&gt;
+(track: &#39;backgroundMusic&#39;, &#39;fadeout&#39;, 6)</tw-passagedata><tw-passagedata pid="32" name="secret area" tags="" position="2401,701" size="100,100">Looks like you found a secret area!
 (if: $coinbox3 &gt; 0)[
 	???
 	
@@ -348,10 +422,55 @@ There&#39;s only one thing left to do; [[jump!|fingame]]
 	There is nothing else here.
 	[[Go back.-&gt;straight]]
 ]
-&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_dda17265ebbe400886e1e1b93e14a8a8~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="33" name="fingame" tags="" position="2054,24" size="100,100">You&#39;ve collected the star! Congratulations!
+&lt;center&gt;&lt;img src=&quot;https://static.wixstatic.com/media/a5390d_dda17265ebbe400886e1e1b93e14a8a8~mv2.jpg&quot;&gt;&lt;/center&gt;</tw-passagedata><tw-passagedata pid="33" name="fingame" tags="" position="2201,138" size="100,100">You&#39;ve collected the star! Congratulations!
 
 &lt;center&gt;&lt;img src=&quot;https://www.mariowiki.com/images/d/d6/Captain_toad_powerstar.png&quot;&gt;&lt;/center&gt;
-</tw-passagedata></tw-storydata>
+(track: &#39;powerstar&#39;, &#39;play&#39;)</tw-passagedata><tw-passagedata pid="34" name="Try running past it." tags="" position="464,1350" size="100,100">You try running past it... but the pirahna plant&#39;s reaction is too quick.  It grips you in its teeth and takes a good size chunk out of you.
+	(if: $lives &lt; 1)[
+		(track: &#39;death&#39;, &#39;Play&#39;)
+		[[Try again?-&gt;Welcome to Beehive World]]
+	]
+	(else:)[
+		(set: $lives to it - 1)
+		Oh no! You lost a life!
+		
+		[[Continue down the path.]]
+		[[Stomp on its head.]]
+		[[Go back.-&gt;Welcome to Beehive World]]
+	]</tw-passagedata><tw-passagedata pid="35" name="Stomp on its head." tags="" position="210,1483" size="100,100">(newplaylist: &#39;tunnelplaylist2&#39;, &#39;stomp&#39;, &#39;coin&#39;)
+(playlist: &#39;tunnelplaylist2&#39;, &#39;play&#39;)
+(set: $coincount to $coincount + 1)
+(replace: ?coincount)[$coincount]
+(set: $enemy01 to 0)
+You&#39;ve defeated the pirahna plant.
+
+[[Continue down the path.]]</tw-passagedata><tw-passagedata pid="36" name="Continue down the path." tags="" position="498,1608" size="100,100">(if: $oneup is 1)[
+ 	You see a yellow box with a question mark on it hidden on a lower ledge. 
+	(link: &#39;Jump&#39;) [{
+		(track: &#39;Jump&#39;, &#39;play&#39;)
+		(track: &#39;oneup&#39;, &#39;play&#39;)
+		(set: $oneup to 0)
+		(set: $lives += 1)
+		(replace: ?lives)[$lives]
+		You&#39;ve found a 1-up Mushroom!
+		[[Go back.-&gt;Welcome to Beehive World]]
+	}] 
+]
+(else-if: $oneup is 0 and $coinbox1 &gt; 0)[
+	You see a yellow box with a question mark on it hidden on a lower ledge.
+	(link-repeat: &#39;Jump&#39;)[{
+		(track: &#39;Jump&#39;, &#39;play&#39;)
+		(track: &#39;coin&#39;, &#39;play&#39;)
+		(set: $coinbox1 to $coinbox1 - 1)
+		(set: $coincount to $coincount + 1)
+		(replace: ?coincount)[$coincount]
+		(goto: &#39;Continue down the path.&#39;)
+	}]
+]
+(else:)[
+	There is nothing else here.
+	[[Go back.-&gt;Welcome to Beehive World]]
+]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">"use strict";var _slicedToArray=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,i=!1,a=void 0;try{for(var o,s=e[Symbol.iterator]();!(r=(o=s.next()).done)&&(n.push(o.value),!t||n.length!==t);r=!0);}catch(e){i=!0,a=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw a}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}!function(){
 /**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
